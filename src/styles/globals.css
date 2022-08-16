@@ -1,3 +1,13 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+  .nav-link {
+    @apply rounded-md p-2 transition-all hover:bg-black/10 dark:hover:bg-white/10;
+  }
+
+  .button {
+    @apply inline-block rounded-sm bg-black/10 p-2 transition-all dark:bg-white/10;
+  }
+}

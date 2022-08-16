@@ -98,20 +98,20 @@ const Home: NextPage = () => {
         <div className="grid grid-cols-1 gap-4">
           <motion.div
             variants={elements}
-            className="relative h-80 w-full overflow-hidden rounded-md bg-neutral-300 transition-colors duration-300 ease-in-out hover:bg-black/0 dark:border dark:border-neutral-800 dark:bg-black/0 dark:hover:bg-neutral-900"
+            className="relative h-80 w-full overflow-hidden rounded-md transition-colors duration-300 ease-in-out hover:bg-black/0 dark:border dark:border-neutral-800 dark:bg-black/0 dark:hover:bg-neutral-900"
           >
             <div className="space-y-4 p-8">
               <div className="flex space-x-2">
-                <span className="rounded-md bg-neutral-100 p-1 text-xs font-semibold text-black">
+                <span className="rounded-md p-1 text-xs font-semibold">
                   NEXT.JS
                 </span>
-                <span className="rounded-md bg-neutral-100 p-1 text-xs font-semibold text-black">
+                <span className="rounded-md p-1 text-xs font-semibold">
                   STRAPI
                 </span>
-                <span className="rounded-md bg-neutral-100 p-1 text-xs font-semibold text-black">
+                <span className="rounded-md p-1 text-xs font-semibold">
                   GRAPHQL
                 </span>
-                <span className="rounded-md bg-neutral-100 p-1 text-xs font-semibold text-black">
+                <span className="rounded-md p-1 text-xs font-semibold">
                   TYPESCRIPT
                 </span>
               </div>

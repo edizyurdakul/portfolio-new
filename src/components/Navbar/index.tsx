@@ -1,47 +1,45 @@
-import { useState, useEffect } from "react";
-import { useTheme } from "next-themes";
-import { motion, AnimatePresence } from "framer-motion";
-import { SunIcon, MoonIcon } from "@heroicons/react/solid";
+import { motion } from "framer-motion";
+// import { SunIcon, MoonIcon } from "@heroicons/react/solid";
 // import { Menu, Transition } from "@headlessui/react";
 
-const ThemeButton = () => {
-  const { systemTheme, theme, setTheme } = useTheme();
-  const currentTheme = theme === "system" ? systemTheme : theme;
-  const [mounted, setMounted] = useState(false);
+// const ThemeButton = () => {
+//   const { systemTheme, theme, setTheme } = useTheme();
+//   const currentTheme = theme === "system" ? systemTheme : theme;
+//   const [mounted, setMounted] = useState(false);
 
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-  if (!mounted) return null;
+//   useEffect(() => {
+//     setMounted(true);
+//   }, []);
+//   if (!mounted) return null;
 
-  return (
-    <AnimatePresence exitBeforeEnter>
-      {currentTheme === "dark" && (
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          onClick={() => setTheme("light")}
-          className="rounded-md p-2 transition-colors hover:bg-white/10"
-        >
-          <SunIcon key={"light"} className="h-6 w-6 text-white" role="button" />
-        </motion.div>
-      )}
-      {currentTheme === "light" && (
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          key={"dark"}
-          onClick={() => setTheme("dark")}
-          className="rounded-md p-2 transition-colors hover:bg-black/10"
-        >
-          <MoonIcon className="h-6 w-6 text-black" role="button" />
-        </motion.div>
-      )}
-    </AnimatePresence>
-  );
-};
+//   return (
+//     <AnimatePresence exitBeforeEnter>
+//       {currentTheme === "dark" && (
+//         <motion.div
+//           initial={{ opacity: 0 }}
+//           animate={{ opacity: 1 }}
+//           exit={{ opacity: 0 }}
+//           onClick={() => setTheme("light")}
+//           className="rounded-md p-2 transition-colors hover:bg-white/10"
+//         >
+//           <SunIcon key={"light"} className="h-6 w-6 text-white" role="button" />
+//         </motion.div>
+//       )}
+//       {currentTheme === "light" && (
+//         <motion.div
+//           initial={{ opacity: 0 }}
+//           animate={{ opacity: 1 }}
+//           exit={{ opacity: 0 }}
+//           key={"dark"}
+//           onClick={() => setTheme("dark")}
+//           className="rounded-md p-2 transition-colors hover:bg-black/10"
+//         >
+//           <MoonIcon className="h-6 w-6 text-black" role="button" />
+//         </motion.div>
+//       )}
+//     </AnimatePresence>
+//   );
+// };
 
 function Navbar() {
   const list = {
@@ -108,9 +106,9 @@ function Navbar() {
           </motion.li>
         </motion.ul>
       </nav>
-      <motion.div className="w-fit" variants={item}>
+      {/* <motion.div className="w-fit" variants={item}>
         {ThemeButton()}
-      </motion.div>
+      </motion.div> */}
     </motion.header>
   );
 }
