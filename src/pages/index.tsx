@@ -1,8 +1,10 @@
 import type { NextPage } from "next";
 import React, { useEffect } from "react";
-import Button from "../components/Button";
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
+import { section, elements } from "../constants";
+import Button from "../components/Button";
+import { SkillCard } from "../components/Skills";
 
 const Section = ({
   children,
@@ -21,22 +23,6 @@ const Section = ({
     }
   }, [controls, inView]);
 
-  const section = {
-    visible: {
-      opacity: 1,
-      transition: {
-        when: "beforeChildren",
-        staggerChildren: 0.1,
-      },
-    },
-    hidden: {
-      opacity: 0,
-      transition: {
-        when: "afterChildren",
-      },
-    },
-  };
-
   return (
     <motion.section
       id={id}
@@ -52,11 +38,6 @@ const Section = ({
 };
 
 const Home: NextPage = () => {
-  const elements = {
-    visible: { opacity: 1 },
-    hidden: { opacity: 0 },
-  };
-
   return (
     <>
       <Section id="#introduction" className="py-32">
@@ -165,7 +146,7 @@ const Home: NextPage = () => {
         <motion.h1 variants={elements} className="text-4xl font-bold">
           Personal Projects
         </motion.h1>
-        <div className="grid grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <motion.div
             variants={elements}
             className="h-80 w-full rounded-md bg-neutral-300 transition-colors duration-300 ease-in-out hover:bg-black/0 dark:border dark:border-neutral-800 dark:bg-black/0 dark:hover:bg-neutral-900"
@@ -188,43 +169,21 @@ const Home: NextPage = () => {
         </motion.div>
       </Section>
 
-      <Section id="#skills" className="space-y-2 py-32">
-        <motion.h1 variants={elements} className="text-4xl font-bold ">
-          Skills
-        </motion.h1>
-        <div className="grid grid-cols-4 gap-4">
-          <motion.div
-            variants={elements}
-            className="h-9 w-full rounded-md bg-neutral-300 transition-colors duration-300 ease-in-out hover:bg-black/0 dark:border dark:border-neutral-800 dark:bg-black/0 dark:hover:bg-neutral-900"
-          >
-            React
-          </motion.div>
-          <motion.div
-            variants={elements}
-            className="h-9 w-full rounded-md bg-neutral-300 transition-colors duration-300 ease-in-out hover:bg-black/0 dark:border dark:border-neutral-800 dark:bg-black/0 dark:hover:bg-neutral-900"
-          >
-            Next.js
-          </motion.div>
-          <motion.div
-            variants={elements}
-            className="h-9 w-full rounded-md bg-neutral-300 transition-colors duration-300 ease-in-out hover:bg-black/0 dark:border dark:border-neutral-800 dark:bg-black/0 dark:hover:bg-neutral-900"
-          >
-            Tailwind CSS
-          </motion.div>
-          <motion.div
-            variants={elements}
-            className="h-9 w-full rounded-md bg-neutral-300 transition-colors duration-300 ease-in-out hover:bg-black/0 dark:border dark:border-neutral-800 dark:bg-black/0 dark:hover:bg-neutral-900"
-          >
-            JavaScript
-          </motion.div>
+      <Section id="#skills" className="space-y-4 py-32">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+          <SkillCard>React</SkillCard>
+          <SkillCard>Next.js</SkillCard>
+          <SkillCard>Tailwind CSS</SkillCard>
+          <SkillCard>Javascript</SkillCard>
         </div>
       </Section>
-
-      <section className="space-y-4">
+      {/* TODO: Add Experience */}
+      {/* <section className="space-y-4">
         <h1 className="text-4xl font-bold ">Experience</h1>
-      </section>
-      <section className="py-32">
-        <h1 className="text-4xl font-bold ">Contact</h1>
+      </section> */}
+      <section className="pb-32 space-y-4">
+        <h1 className="text-4xl font-bold">Contact</h1>
+        <Button href="#">Contact</Button>
       </section>
     </>
   );

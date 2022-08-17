@@ -1,11 +1,11 @@
-import React from 'react'
+import React from "react";
 
 interface PageProps {
-    children: React.ReactNode
+  children: React.ReactNode;
 }
 
 function ContentLayout({ children }: PageProps) {
-    return <main className="mx-auto max-w-3xl">{children}</main>
+  return <main className="mx-auto max-w-3xl p-4">{children}</main>;
 }
 
-export default ContentLayout
+export default ContentLayout;

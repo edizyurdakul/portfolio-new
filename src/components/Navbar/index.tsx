@@ -1,4 +1,8 @@
 import { motion } from "framer-motion";
+import { useRouter } from "next/router";
+import { clsx } from "clsx";
+import Link from "next/link";
+
 // import { SunIcon, MoonIcon } from "@heroicons/react/solid";
 // import { Menu, Transition } from "@headlessui/react";
 
@@ -41,7 +45,47 @@ import { motion } from "framer-motion";
 //   );
 // };
 
-function Navbar() {
+export const NavLink = ({
+  href,
+  children,
+  external = false,
+}: {
+  href: string;
+  children: React.ReactNode;
+  external?: boolean;
+}) => {
+  const router = useRouter();
+  const isActive = router.asPath === href;
+
+  if (external) {
+    return (
+      <a
+        href={href}
+        className={clsx(
+          "rounded-md p-2 transition-all hover:bg-white/10 text-neutral-400 hover:text-white"
+        )}
+        rel="external"
+      >
+        {children}
+      </a>
+    );
+  }
+
+  return (
+    <Link href={href} passHref>
+      <a
+        className={clsx(
+          "rounded-md p-2 transition-all hover:bg-white/10",
+          isActive ? "text-white" : "text-neutral-400 hover:text-white"
+        )}
+      >
+        {children}
+      </a>
+    </Link>
+  );
+};
+
+const Navbar = () => {
   const list = {
     visible: {
       opacity: 1,
@@ -80,29 +124,22 @@ function Navbar() {
         </a>
         <motion.ul className="flex items-center space-x-4">
           <motion.li variants={item}>
-            <a href="#about" className="nav-link">
-              About
-            </a>
+            <NavLink href="/">Home</NavLink>
           </motion.li>
           <motion.li variants={item}>
-            <a href="#about" className="nav-link">
-              Work
-            </a>
+            <NavLink href="/about">About</NavLink>
           </motion.li>
           <motion.li variants={item}>
-            <a href="#about" className="nav-link">
-              Projects
-            </a>
+            <NavLink href="/work">Work</NavLink>
           </motion.li>
           <motion.li variants={item}>
-            <a href="#about" className="nav-link">
-              Skills
-            </a>
+            <NavLink href="/projects">Projects</NavLink>
           </motion.li>
           <motion.li variants={item}>
-            <a href="#about" className="nav-link">
-              Experience
-            </a>
+            <NavLink href="/guestbook">Guestbook</NavLink>
+          </motion.li>
+          <motion.li variants={item}>
+            <NavLink href="/snippets">Snippets</NavLink>
           </motion.li>
         </motion.ul>
       </nav>
@@ -111,6 +148,6 @@ function Navbar() {
       </motion.div> */}
     </motion.header>
   );
-}
+};
 
 export default Navbar;
