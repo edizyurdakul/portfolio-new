@@ -1,40 +1,9 @@
 import type { NextPage } from "next";
-import React, { useEffect } from "react";
-import { motion, useAnimation } from "framer-motion";
-import { useInView } from "react-intersection-observer";
-import { section, elements } from "../constants";
+import React from "react";
+import { motion } from "framer-motion";
+import { elements } from "../constants";
 import Button from "../components/Button";
-
-const Section = ({
-  children,
-  id,
-  className,
-}: {
-  children: React.ReactNode;
-  id: string;
-  className: string;
-}) => {
-  const controls = useAnimation();
-  const [ref, inView] = useInView({ threshold: 0.3 });
-  useEffect(() => {
-    if (inView) {
-      controls.start("visible");
-    }
-  }, [controls, inView]);
-
-  return (
-    <motion.section
-      id={id}
-      ref={ref}
-      animate={controls}
-      initial="hidden"
-      variants={section}
-      className={className}
-    >
-      {children}
-    </motion.section>
-  );
-};
+import Section from "../components/Section";
 
 const Home: NextPage = () => {
   return (
