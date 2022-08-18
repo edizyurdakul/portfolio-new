@@ -4,7 +4,6 @@ import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { section, elements } from "../constants";
 import Button from "../components/Button";
-import { SkillCard } from "../components/Skills";
 
 const Section = ({
   children,
@@ -16,7 +15,7 @@ const Section = ({
   className: string;
 }) => {
   const controls = useAnimation();
-  const [ref, inView] = useInView({ threshold: 0.35 });
+  const [ref, inView] = useInView({ threshold: 0.3 });
   useEffect(() => {
     if (inView) {
       controls.start("visible");
@@ -52,8 +51,10 @@ const Home: NextPage = () => {
           spend most of my time learning more to develop my skills.
         </motion.p>
         <motion.div variants={elements} className="space-y-4">
-          <Button href="#">Resume</Button>
-          <Button href="#">Contact</Button>
+          <Button href="/resume">Resume</Button>
+          <Button href="mailto:edizyurdakul@gmail.com" external>
+            Contact
+          </Button>
         </motion.div>
       </Section>
       <Section id="#about" className="space-y-4">
@@ -169,21 +170,15 @@ const Home: NextPage = () => {
         </motion.div>
       </Section>
 
-      <Section id="#skills" className="space-y-4 py-32">
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
-          <SkillCard>React</SkillCard>
-          <SkillCard>Next.js</SkillCard>
-          <SkillCard>Tailwind CSS</SkillCard>
-          <SkillCard>Javascript</SkillCard>
-        </div>
-      </Section>
       {/* TODO: Add Experience */}
       {/* <section className="space-y-4">
         <h1 className="text-4xl font-bold ">Experience</h1>
       </section> */}
-      <section className="pb-32 space-y-4">
+      <section className="py-32 space-y-4">
         <h1 className="text-4xl font-bold">Contact</h1>
-        <Button href="#">Contact</Button>
+        <Button href="mailto:edizyurdakul@gmail.com" external>
+          Contact
+        </Button>
       </section>
     </>
   );

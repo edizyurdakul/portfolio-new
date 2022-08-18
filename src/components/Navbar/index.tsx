@@ -108,45 +108,48 @@ const Navbar = () => {
   };
 
   return (
-    <motion.header
-      initial="hidden"
-      animate="visible"
-      variants={list}
-      className="flex items-center justify-between space-x-12 py-4"
-    >
-      <nav className="flex">
-        <a
-          href="#introduction"
-          aria-label="Skip navigation and go to introduction"
-          className="absolute top-[-25%] p-2 transition-all ease-in-out focus:top-[10%]"
-        >
-          Skip to content
-        </a>
-        <motion.ul className="flex items-center space-x-4">
-          <motion.li variants={item}>
-            <NavLink href="/">Home</NavLink>
-          </motion.li>
-          <motion.li variants={item}>
-            <NavLink href="/about">About</NavLink>
-          </motion.li>
-          <motion.li variants={item}>
-            <NavLink href="/work">Work</NavLink>
-          </motion.li>
-          <motion.li variants={item}>
-            <NavLink href="/projects">Projects</NavLink>
-          </motion.li>
-          <motion.li variants={item}>
-            <NavLink href="/guestbook">Guestbook</NavLink>
-          </motion.li>
-          <motion.li variants={item}>
-            <NavLink href="/snippets">Snippets</NavLink>
-          </motion.li>
-        </motion.ul>
-      </nav>
-      {/* <motion.div className="w-fit" variants={item}>
+    <>
+      <motion.header
+        initial="hidden"
+        animate="visible"
+        variants={list}
+        className="flex items-center justify-between space-x-12 py-4"
+      >
+        <nav className="flex">
+          <a
+            href="#introduction"
+            aria-label="Skip navigation and go to introduction"
+            className="absolute top-[-25%] p-2 transition-all ease-in-out focus:top-[10%]"
+          >
+            Skip to content
+          </a>
+          <motion.ul className="flex items-center space-x-4">
+            <motion.li variants={item}>
+              <NavLink href="/">Home</NavLink>
+            </motion.li>
+            <motion.li variants={item}>
+              <NavLink href="/about">About</NavLink>
+            </motion.li>
+            <motion.li variants={item}>
+              <NavLink href="/work">Work</NavLink>
+            </motion.li>
+            <motion.li variants={item}>
+              <NavLink href="/projects">Projects</NavLink>
+            </motion.li>
+            <motion.li variants={item}>
+              <NavLink href="/guestbook">Guestbook</NavLink>
+            </motion.li>
+            <motion.li variants={item}>
+              <NavLink href="/snippets">Snippets</NavLink>
+            </motion.li>
+          </motion.ul>
+        </nav>
+        {/* <motion.div className="w-fit" variants={item}>
         {ThemeButton()}
       </motion.div> */}
-    </motion.header>
+      </motion.header>
+      <div className="h-[1px] bg-neutral-800 mt-4"></div>
+    </>
   );
 };
 

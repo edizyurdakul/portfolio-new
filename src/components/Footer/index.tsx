@@ -5,8 +5,9 @@ import { NavLink } from "../Navbar";
 
 const Footer = () => {
   return (
-    <footer className="py-4 flex text-neutral-500">
-      <div className="grid grid-cols-3 gap-16">
+    <footer className="flex flex-col text-neutral-500 pb-16">
+      <div className="h-[1px] bg-neutral-800 my-8"></div>
+      <div className="grid grid-cols-3 gap-2">
         <motion.ul className="flex flex-col space-y-4">
           <motion.li variants={elements}>
             <NavLink href="/">Home</NavLink>
