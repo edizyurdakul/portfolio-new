@@ -1,5 +1,4 @@
 import type { NextPage } from "next";
-import React from "react";
 import { motion } from "framer-motion";
 import { elements } from "../constants";
 import Button from "../components/Button";

@@ -14,7 +14,11 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "incremental": true,
-    "noUncheckedIndexedAccess": true
+    "noUncheckedIndexedAccess": true,
+    "baseUrl": ".",
+    "paths": {
+      "contentlayer/generated": ["./.contentlayer/generated"]
+    }
   },
   "include": [
     "next-env.d.ts",
@@ -23,7 +27,8 @@
     "**/*.tsx",
     "**/*.js",
     "tailwind.config.cjs",
-    "postcss.config.js"
+    "postcss.config.cjs",
+    ".contentlayer/generated"
   ],
   "exclude": ["node_modules"]
 }
