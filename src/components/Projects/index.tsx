@@ -1,6 +1,5 @@
 import { motion } from "framer-motion";
 import { elements } from "../../constants";
-import Button from "../Button";
 import Section from "../Section";
 import ProjectCard from "./card";
 import { Projects } from "../../types/projects";
