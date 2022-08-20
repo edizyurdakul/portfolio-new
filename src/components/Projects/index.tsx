@@ -3,7 +3,8 @@ import { elements } from "../../constants";
 import Button from "../Button";
 import Section from "../Section";
 import ProjectCard from "./card";
-import { Projects, Project } from "../../types/projects";
+import { Projects } from "../../types/projects";
+import { type Project } from "contentlayer/generated";
 
 const ProjectsSection = ({ projects }: Projects) => {
   return (
@@ -13,12 +14,9 @@ const ProjectsSection = ({ projects }: Projects) => {
       </motion.h1>
       <div className="grid grid-cols-1 gap-4">
         {projects.map((project: Project) => {
-          return <ProjectCard key={project.id} project={project} />;
+          return <ProjectCard key={project.slug} project={project} />;
         })}
       </div>
-      <motion.div variants={elements}>
-        <Button href="#">View More</Button>
-      </motion.div>
     </Section>
   );
 };

@@ -42,7 +42,11 @@ const Project = defineDocumentType(() => ({
     title: { type: "string", required: true },
     summary: { type: "string", required: true },
     publishedAt: { type: "string", required: true },
-    skills: { type: "list", of: Skills },
+    skills: {
+      type: "list",
+      of: { type: "string" },
+      required: true,
+    },
     githubUrl: { type: "string", required: true },
     liveUrl: { type: "string", required: true },
     featured: { type: "boolean", required: true },
@@ -53,7 +57,7 @@ const Project = defineDocumentType(() => ({
 const Skills = defineNestedType(() => ({
   name: "Skills",
   fields: {
-    title: { type: "string" },
+    title: { type: "string", required: true },
   },
 }));
 
