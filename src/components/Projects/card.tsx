@@ -17,7 +17,7 @@ const ProjectCard = ({ project }: { project: Project }) => {
               return (
                 <span
                   key={project.slug + skill}
-                  className="rounded-md p-1 text-xs font-semibold bg-pink-900"
+                  className="rounded-md p-1 text-xs font-semibold bg-neutral-300 text-black"
                 >
                   {skill}
                 </span>
@@ -25,14 +25,12 @@ const ProjectCard = ({ project }: { project: Project }) => {
             })}
           </div>
           <h3 className="text-3xl font-bold">{project.title}</h3>
-          <p>
-            Hamshack Radio is an online radio station and independent cultural
-            platform based in Cape Town, South Africa.
-          </p>
+          <p>{project.summary}</p>
         </div>
       </motion.div>
-      <motion.div variants={elements}>
-        <Button href="#">View Live</Button>
+      <motion.div variants={elements} className="space-y-4">
+        <Button href={project.liveUrl}>View Live</Button>
+        <Button href={project.githubUrl}>View GitHub</Button>
       </motion.div>
     </>
   );
