@@ -13,7 +13,10 @@ const About: NextPage = () => {
         I’m Ediz, a front-end developer based in Cape Town, South Africa. I
         spend most of my time learning more to develop my skills.
       </motion.p>
-      <motion.p variants={elements}>Currently learning the T3 stack!</motion.p>
+      <motion.p variants={elements}>
+        Currently learning the T3 stack (Next.js, Typescript, tRPC, Prisma,
+        NextAuth, and Tailwind CSS).
+      </motion.p>
     </Section>
   );
 };
