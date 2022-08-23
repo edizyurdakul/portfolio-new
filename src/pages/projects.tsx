@@ -1,6 +1,6 @@
 import type { NextPage } from "next";
 import ProjectsSection from "../components/Projects";
-import { type Projects } from "../types/projects";
+import { type Projects } from "../types";
 import { allProjects } from "contentlayer/generated";
 import { pick } from "contentlayer/client";
 

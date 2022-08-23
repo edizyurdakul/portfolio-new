@@ -69,7 +69,11 @@ const Work = defineDocumentType(() => ({
     title: { type: "string", required: true },
     summary: { type: "string", required: true },
     publishedAt: { type: "string", required: true },
-    skills: { type: "list", of: Skills },
+    skills: {
+      type: "list",
+      of: { type: "string" },
+      required: true,
+    },
     image: { type: "string", required: true },
     githubUrl: { type: "string", required: true },
     liveUrl: { type: "string", required: true },

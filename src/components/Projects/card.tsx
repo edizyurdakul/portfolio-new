@@ -5,7 +5,6 @@ import { type Project } from "contentlayer/generated";
 import { useRouter } from "next/router";
 
 const ProjectCard = ({ project }: { project: Project }) => {
-  console.log(project);
   const router = useRouter();
   const isHome = router.asPath === "/";
 
