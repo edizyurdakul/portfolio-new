@@ -18,8 +18,8 @@ const ProjectCard = ({ project }: { project: Project }) => {
         <h3 className="text-3xl font-bold ">{project.title}</h3>
         <p className="flex-grow">{project.summary}</p>
         <motion.div variants={elements} className="space-y-4 justify-end ">
-          <Button href={project.liveUrl}>View Live</Button>
-          <Button href={project.githubUrl}>View GitHub</Button>
+          <Button href={project.liveUrl}>Live</Button>
+          <Button href={project.githubUrl}>GitHub</Button>
         </motion.div>
       </motion.div>
     );

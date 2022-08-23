@@ -125,14 +125,10 @@ const Home: NextPage<Projects> = ({ projects }) => {
           })}
         </div>
         <motion.div variants={elements}>
-          <Button href="#">View More</Button>
+          <Button href="/projects">View More</Button>
         </motion.div>
       </Section>
 
-      {/* TODO: Add Experience */}
-      {/* <section className="space-y-4">
-        <h1 className="text-4xl font-bold ">Experience</h1>
-      </section> */}
       <section className="py-32 space-y-4">
         <h1 className="text-4xl font-bold">Contact</h1>
         <Button href="mailto:edizyurdakul@gmail.com" external>
