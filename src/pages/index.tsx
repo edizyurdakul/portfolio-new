@@ -3,8 +3,12 @@ import { motion } from "framer-motion";
 import { elements } from "../constants";
 import Button from "../components/Button";
 import Section from "../components/Section";
+import ProjectCard from "src/components/Projects/card";
+import { allProjects, Project } from "contentlayer/generated";
+import { pick } from "contentlayer/client";
+import { Projects } from "src/types/projects";
 
-const Home: NextPage = () => {
+const Home: NextPage<Projects> = ({ projects }) => {
   return (
     <>
       <Section id="#introduction" className="py-32">
@@ -116,22 +120,9 @@ const Home: NextPage = () => {
           Personal Projects
         </motion.h1>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <motion.div
-            variants={elements}
-            className="h-80 w-full rounded-md bg-neutral-300 transition-colors duration-300 ease-in-out hover:bg-black/0 dark:border dark:border-neutral-800 dark:bg-black/0 dark:hover:bg-neutral-900"
-          ></motion.div>
-          <motion.div
-            variants={elements}
-            className="h-80 w-full rounded-md bg-neutral-300 transition-colors duration-300 ease-in-out hover:bg-black/0 dark:border dark:border-neutral-800 dark:bg-black/0 dark:hover:bg-neutral-900"
-          ></motion.div>
-          <motion.div
-            variants={elements}
-            className="h-80 w-full rounded-md bg-neutral-300 transition-colors duration-300 ease-in-out hover:bg-black/0 dark:border dark:border-neutral-800 dark:bg-black/0 dark:hover:bg-neutral-900"
-          ></motion.div>
-          <motion.div
-            variants={elements}
-            className="h-80 w-full rounded-md bg-neutral-300 transition-colors duration-300 ease-in-out hover:bg-black/0 dark:border dark:border-neutral-800 dark:bg-black/0 dark:hover:bg-neutral-900"
-          ></motion.div>
+          {projects.map((project: Project) => {
+            return <ProjectCard key={project.slug} project={project} />;
+          })}
         </div>
         <motion.div variants={elements}>
           <Button href="#">View More</Button>
@@ -151,5 +142,28 @@ const Home: NextPage = () => {
     </>
   );
 };
+
+export function getStaticProps() {
+  const projects = allProjects
+    .map((project) =>
+      pick(project, [
+        "slug",
+        "title",
+        "summary",
+        "publishedAt",
+        "featured",
+        "skills",
+        "githubUrl",
+        "liveUrl",
+      ])
+    )
+    .sort(
+      (a, b) =>
+        Number(new Date(b.publishedAt)) - Number(new Date(a.publishedAt))
+    );
+  // .filter((project) => project.featured === true);
+
+  return { props: { projects } };
+}
 
 export default Home;
