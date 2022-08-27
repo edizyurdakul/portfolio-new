@@ -8,7 +8,7 @@ const WorkCard = ({ work }: { work: Work }) => {
     <>
       <motion.div
         variants={elements}
-        className="h-60 w-full overflow-hidden rounded-md transition-colors duration-300 ease-in-out hover:bg-black/0 border border-neutral-800 bg-black/0 hover:bg-neutral-900"
+        className="h-60 w-full overflow-hidden rounded-md transition-colors duration-300 ease-in-out border border-neutral-800 bg-black/0 hover:bg-neutral-900"
       >
         <div className="space-y-4 p-8">
           <div className="flex space-x-2">

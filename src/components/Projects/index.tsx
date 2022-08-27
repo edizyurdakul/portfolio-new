@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { elements } from "../../constants";
 import Section from "../Section";
 import ProjectCard from "./card";
-import { Projects } from "../../types/projects";
+import { Projects } from "../../types";
 import { type Project } from "contentlayer/generated";
 
 const ProjectsSection = ({ projects }: Projects) => {
