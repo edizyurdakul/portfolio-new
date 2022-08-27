@@ -57,9 +57,10 @@ const Home: NextPage<IPageProps> = ({ projects, works }) => {
           Work
         </motion.h1>
         <div className="space-y-4">
-          {works.map((work: Work) => {
-            return <WorkCard key={work.slug} work={work} />;
-          })}
+          {Array.isArray(works) &&
+            works.map((work: Work) => {
+              return <WorkCard key={work.slug} work={work} />;
+            })}
         </div>
         <motion.div variants={elements}>
           <Button href="/projects">View More</Button>
@@ -71,9 +72,10 @@ const Home: NextPage<IPageProps> = ({ projects, works }) => {
           Personal Projects
         </motion.h1>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          {projects.map((project: Project) => {
-            return <ProjectCard key={project.slug} project={project} />;
-          })}
+          {Array.isArray(projects) &&
+            projects.map((project: Project) => {
+              return <ProjectCard key={project.slug} project={project} />;
+            })}
         </div>
         <motion.div variants={elements}>
           <Button href="/projects">View More</Button>
